@@ -7,7 +7,7 @@ import pelado from "../assets/images/pelado.png";
 export const MemberButton = () => {
   return (
     <div className="text-2xl">
-      <img src={pelado} className="w-full h-full" alt="" />
+      <img src={pelado} className="w-full lg:w-72 h-full" alt="" />
       <h1 className="text-4xl font-bold py-4">
         ¡No te quedes pelado en diciembre!
       </h1>

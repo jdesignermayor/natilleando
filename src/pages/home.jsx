@@ -14,8 +14,8 @@ export const Home = () => {
 
   return (
     <>
-      <div className="p-5">
-        <div className="pt-40 grid gap-5">
+      <div className="p-5 lg:px-96">
+        <div className="pt-20 grid gap-5 ">
           <h1 className="text-7xl font-bold">La natillera familiar</h1>
           <p className="text-2xl">
             <span className="font-bold">{title}</span> es una simple natillera

@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <div className="flex bottom-0 w-full bg-black text-white gap-4 items-center p-5">
       <div>
-        <img src={imgPersonal} className="rounded-full w-40" alt="" />
+        <img src={imgPersonal} className="rounded-full w-40 lg:w-10" alt="" />
       </div>
       <div>
         <p className="text-sm">
