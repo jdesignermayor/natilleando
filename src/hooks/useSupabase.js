@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { supabase } from "../supabaseclient";
 
-const PRIMARY_ROLE = 2;
+const PRIMARY_ROLE = 3;
 export const useSupabase = () => {
 
     const [paymentMethods, setPaymentMethods] = useState([]);
