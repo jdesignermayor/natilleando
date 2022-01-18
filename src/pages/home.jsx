@@ -4,10 +4,10 @@ import { homeData } from "../services/homeData";
 
 import { Anchor } from "../components/anchor";
 import { ListPanel } from "../components/listPanel";
-import { Rules } from "../components/rules";
-import { Liquidation } from "../components/liquidation";
-import { MemberButton } from "../components/memberButton";
-import { Footer } from "../components/footer";
+import { Rules } from "../components/Rules";
+import { Liquidation } from "../components/Liquidation";
+import { MemberButton } from "../components/MemberButton";
+import { Footer } from "../components/Footer";
 
 export const Home = () => {
   const { title, menuItems, menuData } = homeData;
