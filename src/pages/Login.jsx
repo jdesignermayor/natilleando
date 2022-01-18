@@ -1,16 +1,38 @@
-import { useFormik } from "formik";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../contexts/auth";
+import { useFormik } from "formik";
 
 export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorState, setErrorState] = useState({
+    isError: false,
+    messageError: "",
+  });
+
+  const { isError, messageError } = errorState;
+
+  const navigate = useNavigate();
+  const { signIn, signUp } = useAuth();
 
   const formik = useFormik({
     initialValues: {
-      document_number: "",
+      email: "",
       password: "",
     },
-    onSubmit: ({ document_number, password }) => {},
+    onSubmit: async ({ email, password }) => {
+      const { error } = await signIn({ email, password });
+
+      if (error) {
+        setErrorState({ isError: true, messageError: error.message });
+      } else {
+        setErrorState({ isError: false, messageError: "" });
+        // Redirect user to Dashboard
+        navigate("/dashboard", { replace: true });
+      }
+    },
   });
 
   return (
@@ -18,15 +40,15 @@ export const Login = () => {
       <h1 className="text-4xl font-bold py-4">Iniciar sesion</h1>
       <form onSubmit={formik.handleSubmit} className="grid gap-3">
         <div className="grid gap-2">
-          <label id="document_number" className="font-bold">
-            Cedula
+          <label id="email" className="font-bold">
+            Correo electrónico
           </label>
           <input
-            type="text"
-            name="document_number"
+            type="email"
+            name="email"
             onChange={formik.handleChange}
             className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-            placeholder="Ingresa tu numero de cedula."
+            placeholder="Ingresa tu correo electrónico."
             required
           />
         </div>
@@ -39,7 +61,7 @@ export const Login = () => {
             name="password"
             onChange={formik.handleChange}
             className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-            placeholder="Ingresa tu contrasena"
+            placeholder="Ingresa tu contrasena."
             required
           />
         </div>
@@ -48,6 +70,8 @@ export const Login = () => {
             Recuperar Contraseña
           </a>
         </div>
+
+        {isError && <p>{messageError}</p>}
         <button
           className={`flex items-center justify-center w-full bg-primary text-white text-2xl py-3 px-5 rounded-2xl focus:ring-4 
           ${isLoading && "opacity-50 cursor-not-allowed"}`}
