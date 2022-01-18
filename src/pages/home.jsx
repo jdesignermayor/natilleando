@@ -3,7 +3,6 @@ import React from "react";
 import { homeData } from "../services/homeData";
 
 import { Anchor } from "../components/anchor";
-import { ListPanel } from "../components/listPanel";
 import { Rules } from "../components/rules";
 import { Liquidation } from "../components/liquidation";
 import { MemberButton } from "../components/memberButton";
@@ -15,7 +14,7 @@ export const Home = () => {
   return (
     <>
       <div className="p-5 lg:px-96">
-        <div className="pt-20 grid gap-5 ">
+        <div className="pt-20 grid gap-5">
           <h1 className="text-7xl font-bold">La natillera familiar</h1>
           <p className="text-2xl">
             <span className="font-bold">{title}</span> es una simple natillera
@@ -35,15 +34,6 @@ export const Home = () => {
             <div>
               <Rules />
             </div>
-            {menuData.map((section, i) => (
-              <ListPanel
-                key={i}
-                title={section.title}
-                point={section.point}
-                subtitle={section.subtitle}
-                itemsList={section.items}
-              />
-            ))}
             <div>
               <Liquidation />
             </div>

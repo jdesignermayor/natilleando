@@ -9,15 +9,13 @@ import { Login } from "./pages/login";
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route element={<Home />} path="/" exact />
-          <Route element={<RequestForm />} path="/form" exact />
-          <Route element={<Login />} path="/login" exact />
-          {/* <Route path="*" element={<NotFound/>}/> */}
-        </Routes>
-      </Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route element={<RequestForm />} path="/form"  />
+          <Route element={<Login />} path="/login"  /> */}
+        {/* <Route path="*" element={<NotFound/>}/> */}
+      </Routes>
     </>
   );
 }

@@ -34,11 +34,11 @@ export const Login = () => {
         </div>
         <div className="grid gap-2">
           <label id="name" className="font-bold">
-            Contrasena
+            Contraseña
           </label>
           <input
-            type="text"
-            name="name"
+            type="password"
+            name="password"
             onChange={formik.handleChange}
             className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
             placeholder="Ingresa tu contrasena"
@@ -46,8 +46,8 @@ export const Login = () => {
           />
         </div>
         <div>
-          <a href="" className="text-primary">
-            Recuperar contrasena
+          <a href="#" className="text-primary">
+            Recuperar Contraseña
           </a>
         </div>
         <button

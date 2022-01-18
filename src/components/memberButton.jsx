@@ -11,7 +11,7 @@ export const MemberButton = () => {
       <h1 className="text-4xl font-bold py-4">
         ¡No te quedes pelado en diciembre!
       </h1>
-      <p className>Únete al equipo y crezcamos juntos.</p>
+      <p>Únete al equipo y crezcamos juntos.</p>
       <Link to="form">
         <button className="mt-5 flex items-center justify-center w-full bg-primary text-white text-2xl py-3 px-5 rounded-2xl focus:ring-4">
           <i className="pr-2">
