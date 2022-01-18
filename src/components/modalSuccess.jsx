@@ -18,8 +18,8 @@ export const ModalSuccess = () => {
         </h3>
         <div className="mt-2 px-7 py-3">
           <p className="text-2xl text-gray-500">
-            Solamente espera la aprobación y nos comunicaremos contigo mediante
-            WhatsApp
+            Solamente espera la aprobación y nos comunicaremos contigo
+            mediante WhatsApp en máximo 24 horas.
           </p>
         </div>
       </div>
