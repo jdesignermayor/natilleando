@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { Button } from "./button";
+import React from "react";
+import { Button } from "./Button";
 import logo from "../assets/images/Logo.svg";
 
 import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const location = useLocation();
+
   let isActiveForm = false;
   location.pathname == "/form" ? (isActiveForm = true) : (isActiveForm = false);
 
@@ -17,11 +18,15 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="flex gap-2">
-        {isActiveForm ? (
+        {isActiveForm && (
           <Link to="/">
             <Button text="Inicio" color="secondary" />
           </Link>
-        ) : null}
+        )}
+
+        <Link to="login">
+          <Button text="Iniciar sesión" color="secondary" />
+        </Link>
 
         <Link to="form">
           <Button text="Ser miembro" />
