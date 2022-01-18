@@ -10,7 +10,7 @@ export const useSupabase = () => {
     const setProspect = ({ name, surname, document_number, photo_url, payment_method, referer_id, whatsapp_number }) => {
         return new Promise((resolve, reject) => {
             supabase
-                .from("prospects")
+                .from("users")
                 .insert({
                     name,
                     surname,
@@ -27,7 +27,6 @@ export const useSupabase = () => {
                     reject(err);
                 });
         })
-
     }
 
 

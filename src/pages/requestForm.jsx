@@ -58,7 +58,7 @@ export const RequestForm = () => {
 
   return (
     <>
-      {isSuccess ? <ModalSuccess /> : null}
+      {isSuccess && <ModalSuccess />}
       <div className="flex flex-col p-5 gap-5">
         <h1 className="text-4xl font-bold py-4">Solicitud de ingreso</h1>
         <form onSubmit={formik.handleSubmit} className="grid gap-3">

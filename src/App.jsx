@@ -12,8 +12,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route element={<RequestForm />} path="/form"  />
-          <Route element={<Login />} path="/login"  /> */}
+        <Route element={<RequestForm />} path="/form" />
+        <Route element={<Login />} path="/login" />
         {/* <Route path="*" element={<NotFound/>}/> */}
       </Routes>
     </>

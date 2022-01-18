@@ -8,7 +8,7 @@ export const Navbar = () => {
   const location = useLocation();
 
   let isActiveForm = false;
-  location.pathname == "/form" ? (isActiveForm = true) : (isActiveForm = false);
+  location.pathname !== "/" ? (isActiveForm = true) : (isActiveForm = false);
 
   return (
     <div className="w-full flex justify-between p-5 bg-white z-50">
@@ -23,11 +23,9 @@ export const Navbar = () => {
             <Button text="Inicio" color="secondary" />
           </Link>
         )}
-
         <Link to="login">
           <Button text="Iniciar sesión" color="secondary" />
         </Link>
-
         <Link to="form">
           <Button text="Ser miembro" />
         </Link>
