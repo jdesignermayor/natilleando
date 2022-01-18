@@ -4,7 +4,7 @@ import { useSupabase } from "../hooks/useSupabase.js";
 import { useFormik } from "formik";
 
 import memberIcon from "../assets/images/memberIcon.svg";
-import { ModalSuccess } from "../components/modalSuccess.jsx";
+import { ModalSuccess } from "../components/ModalSuccess.jsx";
 
 export const RequestForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,10 +44,10 @@ export const RequestForm = () => {
         const [data, error] = resp;
         setIsLoading(false);
 
-        if (error !== null) {
+        if (error != null) {
           error.code === "23505"
-            ? (errorMessage = "Ya existe una solicitud con esta cédula.")
-            : (errorMessage = "Por favor intenta de nuevo.");
+            ? (errorMessage = "Ya existe una solicitud con esta cedula.")
+            : "Por favor intenta de nuevo.";
           setIsSuccess(false);
         } else {
           setIsSuccess(true);
@@ -58,7 +58,7 @@ export const RequestForm = () => {
 
   return (
     <>
-      {isSuccess && <ModalSuccess />}
+      {isSuccess ? <ModalSuccess /> : null};
       <div className="flex flex-col p-5 gap-5">
         <h1 className="text-4xl font-bold py-4">Solicitud de ingreso</h1>
         <form onSubmit={formik.handleSubmit} className="grid gap-3">

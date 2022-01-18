@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { supabase } from "../supabaseclient";
 
+const PRIMARY_ROLE = 2;
 export const useSupabase = () => {
 
     const [paymentMethods, setPaymentMethods] = useState([]);
@@ -35,7 +36,7 @@ export const useSupabase = () => {
             setPaymentMethods(data);
         })
 
-        supabase.from("members").then(({ data }) => {
+        supabase.from("users").select("id,name").eq("role", PRIMARY_ROLE).then(({ data }) => {
             setMember(data);
         })
     }, [])
