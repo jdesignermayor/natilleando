@@ -7,25 +7,23 @@ export const Login = () => {
 
   const formik = useFormik({
     initialValues: {
-      user: "",
+      document_number: "",
       password: "",
     },
-    onSubmit: (res) => {
-      console.log(res);
-    },
+    onSubmit: ({ document_number, password }) => {},
   });
 
   return (
-    <div class="flex flex-col p-5 gap-5">
+    <div className="flex flex-col p-5 gap-5">
       <h1 className="text-4xl font-bold py-4">Iniciar sesion</h1>
       <form onSubmit={formik.handleSubmit} className="grid gap-3">
         <div className="grid gap-2">
-          <label id="name" className="font-bold">
+          <label id="document_number" className="font-bold">
             Cedula
           </label>
           <input
             type="text"
-            name="name"
+            name="document_number"
             onChange={formik.handleChange}
             className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
             placeholder="Ingresa tu numero de cedula."

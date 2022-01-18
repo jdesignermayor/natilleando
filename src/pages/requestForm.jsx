@@ -21,17 +21,15 @@ export const RequestForm = () => {
       referer_id: "",
       whatsapp_number: "",
     },
-    onSubmit: (values) => {
+    onSubmit: ({
+      name,
+      surname,
+      document_number,
+      payment_method,
+      referer_id,
+      whatsapp_number,
+    }) => {
       setIsLoading(true);
-      const {
-        name,
-        surname,
-        document_number,
-        payment_method,
-        referer_id,
-        whatsapp_number,
-      } = values;
-
       setProspect({
         name,
         surname,

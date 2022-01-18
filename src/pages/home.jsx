@@ -3,6 +3,7 @@ import React from "react";
 import { homeData } from "../services/homeData";
 
 import { Anchor } from "../components/anchor";
+import { ListPanel } from "../components/listPanel";
 import { Rules } from "../components/rules";
 import { Liquidation } from "../components/liquidation";
 import { MemberButton } from "../components/memberButton";
@@ -34,6 +35,15 @@ export const Home = () => {
             <div>
               <Rules />
             </div>
+            {menuData.map((section, i) => (
+              <ListPanel
+                key={i}
+                title={section.title}
+                point={section.point}
+                subtitle={section.subtitle}
+                itemsList={section.items}
+              />
+            ))}
             <div>
               <Liquidation />
             </div>
