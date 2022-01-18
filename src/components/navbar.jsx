@@ -1,11 +1,23 @@
 import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/auth";
+
 import { Button } from "./Button";
 import logo from "../assets/images/Logo.svg";
 
-import { Link, useLocation } from "react-router-dom";
-
 export const Navbar = () => {
+  const { user, resetUser, signOut } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    // Ends user session
+    await signOut();
+    resetUser();
+
+    // Redirects the user to Login page
+    navigate("/login", { replace: true });
+  };
 
   let isActiveForm = false;
   location.pathname !== "/" ? (isActiveForm = true) : (isActiveForm = false);
@@ -18,17 +30,25 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="flex gap-2">
-        {isActiveForm && (
-          <Link to="/">
-            <Button text="Inicio" color="secondary" />
-          </Link>
+        {!user ? (
+          <>
+            {isActiveForm && (
+              <Link to="/">
+                <Button text="Inicio" color="secondary" />
+              </Link>
+            )}
+            <Link to="login">
+              <Button text="Iniciar sesión" color="secondary" />
+            </Link>
+            <Link to="form">
+              <Button text="Ser miembro" />
+            </Link>
+          </>
+        ) : (
+          <>
+            <button onClick={handleSignOut}>Sign out</button>
+          </>
         )}
-        <Link to="login">
-          <Button text="Iniciar sesión" color="secondary" />
-        </Link>
-        <Link to="form">
-          <Button text="Ser miembro" />
-        </Link>
       </div>
     </div>
   );
