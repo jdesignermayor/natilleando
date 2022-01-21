@@ -1,10 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./contexts/auth";
+// import { AuthProvider } from "./contexts/auth";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import { Navbar } from "./components/navbar";
-import { Home } from "./pages/home";
-import { RequestForm } from "./pages/requestForm";
+import { Home } from "./pages/Home";
+import { RequestForm } from "./pages/RequestForm";
 import { Login } from "./pages/login";
 import { Dashboard } from "./pages/Dashboard";
 import { NotFound } from "./pages/NotFound";
@@ -12,7 +14,7 @@ import { NotFound } from "./pages/NotFound";
 function App() {
   return (
     <>
-      <AuthProvider>
+      <Provider store={store}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,7 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </AuthProvider>
+      </Provider>
     </>
   );
 }
