@@ -15,20 +15,26 @@ export const Home = () => {
   return (
     <>
       <div className="p-5 lg:px-96">
-        <div className="pt-20 grid gap-5">
-          <h1 className="text-8xl font-bold">Ahorra sin perder dinero</h1>
-          <p className="text-2xl">
-            <span className="font-bold">{title}</span> es una simple natillera
-            para miembros exclusivos que tiene como propósito crear un ahorro
-            programado a través del tiempo con un porcentaje de rentabilidad
-            anual.
-          </p>
-          <hr />
-          <div className="w-full grid grid-cols-2  gap-2">
-            {menuItems.map(({ name, style, point }, i) => {
-              const props = { labelText: name, point, style };
-              return <Anchor key={i} {...props} />;
-            })}
+        <div className="pt-20 flex flex-col gap-8 items-center justify-center text-start 2xl:px-[30%]">
+          <div className="flex gap-8 items-center h-screen">
+            <div>
+              <h1 className="text-7xl font-bold font-recoleta">
+                Ahorra sin perder dinero
+              </h1>
+              <p className="text-2xl">
+                <span className="font-bold">{title}</span> es una simple
+                natillera para miembros exclusivos que tiene como propósito
+                crear un ahorro programado a través del tiempo con un porcentaje
+                de rentabilidad anual.
+              </p>
+              <br />
+              <div className="grid grid-cols-2 gap-2">
+                {menuItems.map(({ name, style, point }, i) => {
+                  const props = { labelText: name, point, style };
+                  return <Anchor key={i} {...props} />;
+                })}
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-40 mt-48">
@@ -42,6 +48,7 @@ export const Home = () => {
                 point={section.point}
                 subtitle={section.subtitle}
                 itemsList={section.items}
+                imgURL={section.imgURL}
               />
             ))}
             <div>

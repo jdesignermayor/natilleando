@@ -16,7 +16,8 @@ module.exports = {
         money: '#D3F0E0',
       },
       fontFamily: {
-        'sans': ['Recoleta', 'Helvetica', 'Arial', 'sans-serif']
+        recoleta: "Recoleta",
+        basic: ['Recoleta', 'Helvetica', 'Arial', 'sans-serif']
       }
     },
   },

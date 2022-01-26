@@ -6,7 +6,7 @@ export const Liquidation = () => {
 
   return (
     <div className="text-2xl" id="payments">
-      <h1 className="text-4xl font-bold py-4">Liquidación</h1>
+      <h1 className="text-6xl font-bold py-4 font-recoleta">Liquidación</h1>
       <p>
         la natillera será liquidada el 1 de diciembre de cada año, y se
         entregará a cada socio, el ahorro que haya hecho durante los 11 meses,

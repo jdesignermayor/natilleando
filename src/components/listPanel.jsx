@@ -1,10 +1,12 @@
 import React from "react";
 
-export const ListPanel = ({ title, subtitle, point, itemsList }) => {
+export const ListPanel = ({ title, subtitle, point, imgURL, itemsList }) => {
   return (
-    <div className="text-2xl" id={`${point}`}>
-      <div className=" py-4">
-        <h1 className="text-4xl font-bold ">{title}</h1>
+    <div className="text-2xl h-screen" id={`${point}`}>
+      <img src={imgURL} width="250" alt={title} />
+
+      <div className="py-4">
+        <h1 className="text-6xl font-bold py-4 font-recoleta">{title}</h1>
         {subtitle ?? <p className="text-3xl text-green-600">{subtitle}</p>}
       </div>
 

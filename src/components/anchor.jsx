@@ -41,7 +41,7 @@ export const Anchor = ({ labelText, point, style }) => {
     <>
       <a
         href={`#${point}`}
-        className={`flex justify-between font-bold items-center ${styleClass} py-4 px-2 w-full rounded-2xl h-16 focus:ring-4`}
+        className={`flex justify-between font-bold items-center ${styleClass} py-4 px-2 w-full rounded-2xl h-16 focus:ring-4 border-2 border-transparent hover:border-black`}
         rel="noopener"
       >
         {labelText}

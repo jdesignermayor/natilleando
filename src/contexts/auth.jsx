@@ -1,9 +1,7 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { supabase } from "../supabaseclient";
 
-const AuthContext = React.createContext();
-
-export const AuthProvider = ({ children }) => {
+export const useAuth = ({ children }) => {
   const [user, setUser] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -49,13 +47,5 @@ export const AuthProvider = ({ children }) => {
     signOut: () => supabase.auth.signOut(),
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!isLoading && children}
-    </AuthContext.Provider>
-  );
+  return value;
 };
-
-export function useAuth() {
-  return useContext(AuthContext);
-}

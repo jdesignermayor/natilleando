@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { useAuth } from "../contexts/auth";
 import { useFormik } from "formik";
+import { useSupabase } from "../hooks/useSupabase";
 
 export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,10 +11,12 @@ export const Login = () => {
     messageError: "",
   });
 
+  const { signInWithFacebook } = useSupabase();
+
   const { isError, messageError } = errorState;
 
   const navigate = useNavigate();
-  const { signIn, signUp } = useAuth();
+  // const { signIn, signUp } = useAuth();
 
   const formik = useFormik({
     initialValues: {
@@ -23,20 +24,25 @@ export const Login = () => {
       password: "",
     },
     onSubmit: async ({ email, password }) => {
-      const { error } = await signIn({ email, password });
-
-      if (error) {
-        setErrorState({ isError: true, messageError: error.message });
-      } else {
-        setErrorState({ isError: false, messageError: "" });
-        // Redirect user to Dashboard
-        navigate("/dashboard", { replace: true });
-      }
+      // const { error } = await signIn({ email, password });
+      // if (error) {
+      //   setErrorState({ isError: true, messageError: error.message });
+      // } else {
+      //   setErrorState({ isError: false, messageError: "" });
+      //   // Redirect user to Dashboard
+      //   navigate("/dashboard", { replace: true });
+      // }
     },
   });
 
+  const signIn = () => {
+     return signInWithFacebook().then(res => {
+       console.log(res);
+     });
+  };
+
   return (
-    <div className="flex flex-col p-5 gap-5">
+    <div className="flex flex-col p-5 gap-5 lg:px-96">
       <h1 className="text-4xl font-bold py-4">Iniciar sesion</h1>
       <form onSubmit={formik.handleSubmit} className="grid gap-3">
         <div className="grid gap-2">
@@ -81,6 +87,8 @@ export const Login = () => {
           Iniciar sesión
         </button>
       </form>
+
+      <button onClick={() => signIn()}>Sing in with facebook</button>
     </div>
   );
 };

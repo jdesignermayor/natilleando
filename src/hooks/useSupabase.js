@@ -30,6 +30,12 @@ export const useSupabase = () => {
         })
     }
 
+    const signInWithFacebook = async () => {
+        return await supabase.auth.signIn({
+            provider: 'facebook',
+        });
+    }
+
 
     useEffect(() => {
         supabase.from("payment_methods").then(({ data }) => {
@@ -44,6 +50,7 @@ export const useSupabase = () => {
     return {
         paymentMethods,
         memberList,
-        setProspect
+        setProspect,
+        signInWithFacebook
     }
 }

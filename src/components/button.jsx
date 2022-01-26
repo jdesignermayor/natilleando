@@ -8,7 +8,7 @@ export const Button = ({ text = "asdasd", color }) => {
       break;
 
     case "secondary":
-      printColor = "bg-primaryLight";
+      printColor = "bg-white";
       break;
 
     default:
@@ -19,8 +19,10 @@ export const Button = ({ text = "asdasd", color }) => {
     <>
       <button
         className={`${printColor} ${
-          color === "secondary" ? "text-primary" : "text-white"
-        }   hover:bg-green-700 rounded-xl h-10 px-2 focus:ring-4`}
+          color === "secondary"
+            ? "text-primary hover:bg-primaryLight"
+            : "text-white hover:bg-green-800"
+        }    rounded-xl h-10 px-3 focus:ring-4`}
       >
         {text}
       </button>

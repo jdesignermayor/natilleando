@@ -3,8 +3,11 @@ import React from "react";
 export const Rules = () => {
   return (
     <>
-      <div className="text-2xl" id="rules">
-        <h1 className="text-4xl font-bold py-4">Normas</h1>
+      <div className="text-2xl h-screen" id="rules">
+        <img src="https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-job-application-2@400x400.png" alt="" />
+        <h1 className="text-6xl font-bold py-4 font-recoleta">
+          Simples normas
+        </h1>
         <p>
           Antes de iniciar con las normas es importante dejar claro, esta es una
           natillera exclusivamente familiar y/o amigos de confianza, no tiene

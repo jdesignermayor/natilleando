@@ -18,6 +18,7 @@ export const homeData = {
       title: "Requisitos",
       point: "requirements",
       subtitle: "Ingreso y ahorro",
+      imgURL: "https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-evaluate-performance-employee-2@400x400.png",
       items: [
         {
           label: "La inscripción tiene un costo de $ 5.000 pesos.",
@@ -31,6 +32,7 @@ export const homeData = {
     {
       title: "Multas e interés",
       subtitle: "",
+      imgURL: "https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-overworked-employee-3@400x400.png",
       point: "debts",
       items: [
         {
@@ -42,6 +44,9 @@ export const homeData = {
         { label: "Las  multas como los intereses deben ser pagados al inicio de mes con la cuota del ahorro." },
         {
           label: "Los intereses serán en un(%) porcentaje al monto de ahorro del socio."
+        },
+        {
+          label: "Impulsamos la buena gestión del dinero, así que el socio que no pague así sea un mes, automáticamente será expulsado de la natillera."
         }
       ]
     },
@@ -49,6 +54,7 @@ export const homeData = {
       title: "Créditos",
       point: "credits",
       subtitle: "",
+      imgURL: "https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-work-life-balance-2@400x400.png",
       items: [
         {
           label: "Los créditos se realiza, sin exceder el monto ahorrado del socio. (revisar antigüedad del socio en la natillera)",
@@ -65,6 +71,7 @@ export const homeData = {
     {
       title: "Rifas y eventos",
       point: "events",
+      imgURL: "https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-team-success-3@400x400.png",
       subtitle: "",
       items: [
         {

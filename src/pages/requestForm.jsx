@@ -57,104 +57,118 @@ export const RequestForm = () => {
   return (
     <>
       {isSuccess ? <ModalSuccess /> : null};
-      <div className="flex flex-col p-5 gap-5">
-        <h1 className="text-4xl font-bold py-4">Solicitud de ingreso</h1>
-        <form onSubmit={formik.handleSubmit} className="grid gap-3">
-          <div className="grid gap-2">
-            <label id="name" className="font-bold">
-              Nombres
-            </label>
-            <input
-              type="text"
-              name="name"
-              onChange={formik.handleChange}
-              className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-              placeholder=""
-              required
-            />
+      <div className="flex flex-col p-5 gap-5 mt-28 2xl:px-[30%]">
+        <div>
+          <h1 className="text-6xl font-bold font-recoleta">
+            Solicitud de ingreso
+          </h1>
+          <p>
+            Al llenar el formulario estás solicitando el ingreso automáticamente
+            a la natillera.
+          </p>
+        </div>
+        <form onSubmit={formik.handleSubmit} className="grid gap-5">
+          <div className="grid 2xl:grid-cols-2 gap-2">
+            <div className="grid gap-2">
+              <label id="name" className="font-bold">
+                Nombres
+              </label>
+              <input
+                type="text"
+                name="name"
+                onChange={formik.handleChange}
+                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
+                placeholder="Ejemplo: Fernanda"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <label id="name" className="font-bold">
+                Apellidos
+              </label>
+              <input
+                type="text"
+                name="surname"
+                onChange={formik.handleChange}
+                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
+                placeholder="Ejemplo: Pulgarin"
+                required
+              />
+            </div>
           </div>
-          <div className="grid gap-2">
-            <label id="name" className="font-bold">
-              Apellidos
-            </label>
-            <input
-              type="text"
-              name="surname"
-              onChange={formik.handleChange}
-              className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-              placeholder=""
-              required
-            />
+          <div className="grid 2xl:grid-cols-2 gap-2">
+            <div className="grid gap-2  ">
+              <label id="name" className="font-bold">
+                Cédula
+              </label>
+              <input
+                type="number"
+                name="document_number"
+                onChange={formik.handleChange}
+                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
+                pattern="\d*"
+                placeholder="Ejemplo: 3042222112"
+                required
+              />
+            </div>
+            <div className="grid gap-2  ">
+              <label id="name" className="font-bold">
+                Whatsapp
+              </label>
+              <input
+                type="number"
+                name="whatsapp_number"
+                onChange={formik.handleChange}
+                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
+                pattern="\d*"
+                placeholder="Ejemplo: 3042222112"
+                required
+              />
+            </div>
           </div>
-          <div className="grid gap-2  ">
-            <label id="name" className="font-bold">
-              Cédula
-            </label>
-            <input
-              type="number"
-              name="document_number"
-              onChange={formik.handleChange}
-              className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-              pattern="\d*"
-              placeholder=""
-              required
-            />
-          </div>
-          <div className="grid gap-2  ">
-            <label id="name" className="font-bold">
-              Whatsapp
-            </label>
-            <input
-              type="number"
-              name="whatsapp_number"
-              onChange={formik.handleChange}
-              className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-              pattern="\d*"
-              placeholder=""
-              required
-            />
-          </div>
-          <div className="grid gap-2">
-            <label id="name" className="font-bold">
-              Medio de pago
-            </label>
-            <select
-              name="payment_method"
-              onChange={formik.handleChange}
-              id=""
-              className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary focus:border-2 rounded-lg focus:bg-primaryLight p-2"
-              required
-            >
-              <option value="">Selecciona</option>
-              {paymentMethods.map(({ id, name }) => (
-                <option key={id} value={id}>
-                  {name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="grid gap-2">
-            <label id="name" className="font-bold">
-              Recomendado por
-            </label>
-            <select
-              name="referer_id"
-              onChange={formik.handleChange}
-              id=""
-              className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary focus:border-2 rounded-lg focus:bg-primaryLight p-2"
-              required
-            >
-              <option value="">Selecciona</option>
-              {memberList.map(({ id, name }) => (
-                <option key={id} value={id}>
-                  {name}
-                </option>
-              ))}
-            </select>
+          <div className="grid 2xl:grid-cols-2 gap-2">
+            <div className="grid gap-2">
+              <label id="name" className="font-bold">
+                Medio de pago
+              </label>
+              <select
+                name="payment_method"
+                onChange={formik.handleChange}
+                id=""
+                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
+                required
+              >
+                <option value="">Selecciona medio de pago</option>
+                {paymentMethods.map(({ id, name }) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="grid gap-2">
+              <label id="name" className="font-bold">
+                Recomendado por
+              </label>
+              <select
+                name="referer_id"
+                onChange={formik.handleChange}
+                id=""
+                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
+                required
+              >
+                <option value="">Selecciona la persona que te recomendó</option>
+                {memberList.map(({ id, name }) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div>
             <button
-              className={`flex items-center justify-center w-full bg-primary text-white text-2xl py-3 px-5 rounded-2xl focus:ring-4 ${
+              className={`flex items-center justify-center w-full bg-primary text-white py-3 px-5 rounded-2xl focus:ring-4 ${
                 isLoading ? "opacity-50 cursor-not-allowed" : ""
               }`}
               type="submit"
