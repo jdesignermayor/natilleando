@@ -6,6 +6,11 @@ export const Liquidation = () => {
 
   return (
     <div className="text-2xl" id="payments">
+      <img
+        src="https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-becoming-rich-2@400x400.png"
+        width="350"
+        alt=""
+      />
       <h1 className="text-6xl font-bold py-4 font-recoleta">Liquidación</h1>
       <p>
         la natillera será liquidada el 1 de diciembre de cada año, y se

@@ -57,7 +57,7 @@ export const RequestForm = () => {
   return (
     <>
       {isSuccess ? <ModalSuccess /> : null};
-      <div className="flex flex-col p-5 gap-5 mt-28 2xl:px-[30%]">
+      <div className="grid p-5 gap-5 mt-28  lg:px-[25%]  2xl:px-[30%]">
         <div>
           <h1 className="text-6xl font-bold font-recoleta">
             Solicitud de ingreso

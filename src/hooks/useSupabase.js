@@ -3,10 +3,8 @@ import { supabase } from "../supabaseclient";
 
 const PRIMARY_ROLE = 3;
 export const useSupabase = () => {
-
     const [paymentMethods, setPaymentMethods] = useState([]);
     const [memberList, setMember] = useState([]);
-
 
     const setProspect = ({ name, surname, document_number, photo_url, payment_method, referer_id, whatsapp_number }) => {
         return new Promise((resolve, reject) => {
@@ -37,7 +35,9 @@ export const useSupabase = () => {
     }
 
 
+
     useEffect(() => {
+
         supabase.from("payment_methods").then(({ data }) => {
             setPaymentMethods(data);
         })
@@ -45,12 +45,18 @@ export const useSupabase = () => {
         supabase.from("users").select("id,name").eq("role", PRIMARY_ROLE).then(({ data }) => {
             setMember(data);
         })
-    }, [])
+    }, []);
+
+    const signInWithEmail = () => {
+        supabase.auth.signIn(data);
+    }
 
     return {
+        supabase,
         paymentMethods,
         memberList,
         setProspect,
-        signInWithFacebook
+        signInWithFacebook,
+        signInWithEmail
     }
 }

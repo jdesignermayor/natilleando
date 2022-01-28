@@ -15,7 +15,7 @@ export const Home = () => {
   return (
     <>
       <div className="p-5 lg:px-96">
-        <div className="pt-20 flex flex-col gap-8 items-center justify-center text-start 2xl:px-[30%]">
+        <div className="pt-20 items-center justify-center text-start 2xl:px-[30%]">
           <div className="flex gap-8 items-center h-screen">
             <div>
               <h1 className="text-7xl font-bold font-recoleta">
@@ -37,26 +37,21 @@ export const Home = () => {
             </div>
           </div>
 
-          <div className="grid gap-40 mt-48">
-            <div>
-              <Rules />
-            </div>
+          <div className="mt-48 grid gap-48">
+            <Rules />
             {menuData.map((section, i) => (
               <ListPanel
                 key={i}
-                title={section.title}
-                point={section.point}
-                subtitle={section.subtitle}
-                itemsList={section.items}
-                imgURL={section.imgURL}
+                {...section}
+                // title={section.title}
+                // point={section.point}
+                // subtitle={section.subtitle}
+                // itemsList={section.items}
+                // imgURL={section.imgURL}
               />
             ))}
-            <div>
-              <Liquidation />
-            </div>
-            <div>
-              <MemberButton />
-            </div>
+            <Liquidation />
+            <MemberButton />
           </div>
         </div>
       </div>
