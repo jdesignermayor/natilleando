@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { useSupabase } from "../hooks/useSupabase";
+import { useSupabase } from "../../hooks/useSupabase";
 import { useDispatch } from "react-redux";
 
-import { login } from "../features/userSlice";
+import { login } from "../../features/userSlice";
 
 export const Login = () => {
   const [user, setUser] = useState(null);
@@ -45,6 +45,8 @@ export const Login = () => {
             ...user,
           })
         );
+
+        navigate("/dashboard");
       }
     },
   });
