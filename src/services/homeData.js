@@ -63,7 +63,7 @@ export const homeData = {
         {
           label: "Solo se otorgan crédito a los socios de la natillera.",
         },
-        { label: "Los créditos se aprobarán siempre que haya dinero disponible para tal fin." },
+        { label: "El crédito solo se realizará sobre el 75% del ahorro aportado por el socio y el otro 25% es para cubrir multas y moras en caso de algún incumplimiento por parte del socio." },
         {
           label: "Los créditos solicitados por la app se gestionará más rápido su desembolso."
         }

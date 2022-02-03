@@ -40,7 +40,7 @@ export const Rules = () => {
           socio.
         </li>
         <li>
-          Los veneficios a repartir se obtendrán a través de: Multas, rifas,
+          Los beneficios a repartir se obtendrán a través de: Multas, rifas,
           eventos, intereses generados por nequi, intereses generados por
           préstamos y otros extraordinarios.
         </li>
