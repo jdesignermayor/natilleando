@@ -14,6 +14,7 @@ import { NotFound } from "./pages/404/NotFound";
 function App() {
   return (
     <>
+    <Navbar />
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<Home />} />

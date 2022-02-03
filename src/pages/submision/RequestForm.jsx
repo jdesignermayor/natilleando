@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { useSupabase } from "../hooks/useSupabase.js";
+import { useSupabase } from "../../hooks/useSupabase";
 import { useFormik } from "formik";
 
-import memberIcon from "../assets/images/memberIcon.svg";
-import { ModalSuccess } from "../components/ModalSuccess.jsx";
+import memberIcon from "../../assets/images/memberIcon.svg";
+import { ModalSuccess } from "../../components/ModalSuccess.jsx";
 
 export const RequestForm = () => {
   const [isLoading, setIsLoading] = useState(false);

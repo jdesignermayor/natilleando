@@ -21,7 +21,7 @@ export const homeData = {
       imgURL: "https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-evaluate-performance-employee-2@400x400.png",
       items: [
         {
-          label: "La inscripción tiene un costo de $ 5.000 pesos.",
+          label: "La inscripción tiene un costo de $ 5.000 pesos anuales.",
         },
         {
           label: "El ahorro puede ser variable, pero solo será una sola vez al mes.",
@@ -48,6 +48,7 @@ export const homeData = {
         {
           label: "Impulsamos la buena gestión del dinero, así que el socio que no pague así sea un mes, automáticamente será expulsado de la natillera."
         }
+
       ]
     },
     {

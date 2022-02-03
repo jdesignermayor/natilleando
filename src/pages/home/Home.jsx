@@ -1,13 +1,13 @@
 import React from "react";
 
-import { homeData } from "../services/homeData";
+import { homeData } from "../../services/homeData";
 
-import { Anchor } from "../components/anchor";
-import { ListPanel } from "../components/listPanel";
-import { Rules } from "../components/Rules";
-import { Liquidation } from "../components/Liquidation";
-import { MemberButton } from "../components/MemberButton";
-import { Footer } from "../components/Footer";
+import { Anchor } from "../../components/anchor";
+import { ListPanel } from "../../components/listPanel";
+import { Rules } from "../../components/Rules";
+import { Liquidation } from "../../components/Liquidation";
+import { MemberButton } from "../../components/MemberButton";
+import { Footer } from "../../components/Footer";
 
 export const Home = () => {
   const { title, menuItems, menuData } = homeData;

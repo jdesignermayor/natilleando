@@ -25,6 +25,26 @@ export const Rules = () => {
         si desea hacer parte de este mundo de ahorro familiar bienvenido a
         natilleando.
       </p>
+      <br />
+      <ol className="list-disc px-6 space-y-4">
+        <li>
+          El periodo de ahorro abarca desde enero a diciembre del año en curso.
+        </li>
+        <li>
+          Si el socio decide retirarse antes de diciembre no recibirá los
+          intereses acumulados hasta la fecha.
+        </li>
+        <li>
+          Los intereses obtenidos en el periodo de ahorro se repartirá a todos
+          los socios por igual independientes del ahorro invertido por cada
+          socio.
+        </li>
+        <li>
+          Los veneficios a repartir se obtendrán a través de: Multas, rifas,
+          eventos, intereses generados por nequi, intereses generados por
+          préstamos y otros extraordinarios.
+        </li>
+      </ol>
     </div>
   );
 };
