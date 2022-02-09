@@ -1,8 +1,8 @@
 import React from "react";
-import { homeData } from "../services/homeData";
+import { homeService } from "../services/homedata-service";
 
 export const Liquidation = () => {
-  const { title } = homeData;
+  const { title } = homeService;
 
   return (
     <div className="text-2xl" id="payments">

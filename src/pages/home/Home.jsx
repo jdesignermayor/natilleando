@@ -1,21 +1,20 @@
 import React from "react";
 
-import { homeData } from "../../services/homeData";
+import { homeService } from "../../services/homedata-service";
 
 import { Anchor } from "../../components/anchor";
 import { ListPanel } from "../../components/listPanel";
-import { Rules } from "../../components/Rules";
 import { Liquidation } from "../../components/Liquidation";
 import { MemberButton } from "../../components/MemberButton";
 import { Footer } from "../../components/Footer";
 
 export const Home = () => {
-  const { title, menuItems, menuData } = homeData;
+  const { title, menuItems, menuData } = homeService;
 
   return (
     <>
-      <div className="p-5 lg:px-96">
-        <div className="pt-20 items-center justify-center text-start 2xl:px-[30%]">
+      <div className="p-3 lg:px-96">
+        <div className="pt-20 items-center justify-center text-start 2xl:px-[20%]">
           <div className="flex gap-8 items-center h-screen">
             <div>
               <h1 className="text-7xl font-bold font-recoleta">
@@ -38,7 +37,6 @@ export const Home = () => {
           </div>
 
           <div className="mt-48 grid gap-48">
-            <Rules />
             {menuData.map((section, i) => (
               <ListPanel
                 key={i}

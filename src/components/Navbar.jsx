@@ -11,7 +11,7 @@ export const Navbar = () => {
   location.pathname !== "/" ? (isActiveForm = true) : (isActiveForm = false);
 
   return (
-    <div className="w-full flex justify-between py-5 px-5 lg:px-64 2xl:px-96 bg-white z-50 fixed">
+    <div className="w-full flex justify-between py-3 px-3 lg:px-64 2xl:px-96 bg-white z-50 fixed">
       <div className="cursor-pointer">
         <Link to="/">
           <img src={logo} className="App-logo" alt="logo" />
@@ -27,7 +27,7 @@ export const Navbar = () => {
           <Button text="Iniciar sesión" color="secondary" />
         </Link>
         <Link to="form">
-          <Button text="Ser miembro" />
+          <Button text="Ser socio" />
         </Link>
       </div>
     </div>

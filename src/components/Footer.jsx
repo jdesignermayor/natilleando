@@ -3,9 +3,9 @@ import imgPersonal from "../assets/images/imgpersonal.jpg";
 
 export const Footer = () => {
   return (
-    <div className="flex bottom-0 w-full bg-black text-white gap-4 items-center p-5">
+    <div className="flex bottom-0 w-full bg-black text-white gap-4 items-center py-7 px-3 lg:px-64 2xl:px-96">
       <div>
-        <img src={imgPersonal} className="rounded-full w-40 lg:w-10" alt="" />
+        <img src={imgPersonal} className="rounded-full w-40 lg:w-10" alt="No te quedes peleado!" />
       </div>
       <div>
         <p className="text-sm">
