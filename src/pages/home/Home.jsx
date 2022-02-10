@@ -3,7 +3,7 @@ import React from "react";
 import { homeService } from "../../services/homedata-service";
 
 import { Anchor } from "../../components/anchor";
-import { ListPanel } from "../../components/listPanel";
+import { ListPanel } from "../../components/ListPanel";
 import { Liquidation } from "../../components/Liquidation";
 import { MemberButton } from "../../components/MemberButton";
 import { Footer } from "../../components/Footer";
@@ -41,11 +41,6 @@ export const Home = () => {
               <ListPanel
                 key={i}
                 {...section}
-                // title={section.title}
-                // point={section.point}
-                // subtitle={section.subtitle}
-                // itemsList={section.items}
-                // imgURL={section.imgURL}
               />
             ))}
             <Liquidation />
