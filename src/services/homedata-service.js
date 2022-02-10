@@ -1,9 +1,16 @@
+
 export const prices = {
   inscriptionPriceInCOP: 5000,
   debtFineInCop: 500,
 };
 
-export const homeData = {
+export const PRIMARY_ROLE = 3;
+
+export const homeService = {
+  config: {
+    ...prices,
+    primaryRole: PRIMARY_ROLE,
+  },
   title: "Natilleando",
   menuItems: [
     { name: "Normas", style: "primaryLight", point: "rules" },
@@ -14,6 +21,34 @@ export const homeData = {
     { name: "Liquidación", style: "money", point: "payments" },
   ],
   menuData: [
+    {
+      title: "Simples normas",
+      point: "rules",
+      subtitle: "",
+      imgURL: "https://wixtzvsuyxagezjctvdb.supabase.in/storage/v1/object/public/bucket/streamline-icon-leadership-1@400x400.png",
+      description: ` <p>
+      Antes de iniciar con las normas es importante dejar claro, esta es una
+      natillera exclusivamente familiar y/o amigos de confianza, no tiene
+      fines lucrativos para ninguna parte, y fue desarrollada solo con el fin
+      de integrar de alguna manera a la familia o persona independiente en un
+      ahorro navideño. Es administrada por personas responsables.
+    </p>
+    <p class="mt-5">
+      Si desea hacer parte de este mundo de ahorro familiar bienvenido a
+      natilleando.
+    </p>
+    <br />`,
+      items: [
+        {
+          label: "El periodo de ahorro abarca desde enero a diciembre del año en curso.",
+        },
+        {
+          label: "Si el socio decide retirarse antes de diciembre no recibirá los intereses acumulados hasta la fecha.",
+        },
+        { label: "Los intereses obtenidos en el periodo de ahorro se repartirá a todos los socios por igual independientes del ahorro invertido por cada socio." },
+        { label: "Los beneficios a repartir se obtendrán a través de: Multas, rifas, eventos, intereses generados por nequi, intereses generados por préstamos y otros extraordinarios." }
+      ]
+    },
     {
       title: "Requisitos",
       point: "requirements",

@@ -1,62 +1,40 @@
-import { useEffect, useState } from "react"
-import { supabase } from "../supabaseclient";
+import React, { useState, useEffect } from 'react';
+import { supabaseService } from "../services/supabase-service";
 
-const PRIMARY_ROLE = 3;
+
 export const useSupabase = () => {
-    const [paymentMethods, setPaymentMethods] = useState([]);
-    const [memberList, setMember] = useState([]);
+    const [memberList, setMemberList] = useState([]);
+    const [paymentMethodsList, setPaymentMethods] = useState([]);
+    const { postProspect } = supabaseService();
 
-    const setProspect = ({ name, surname, document_number, photo_url, payment_method, referer_id, whatsapp_number }) => {
-        return new Promise((resolve, reject) => {
-            supabase
-                .from("users")
-                .insert({
-                    name,
-                    surname,
-                    document_number,
-                    photo_url,
-                    payment_method,
-                    referer_id,
-                    whatsapp_number
-                })
-                .single()
-                .then(({ data, error }) => {
-                    resolve([data, error]);
-                }).catch((err) => {
-                    reject(err);
-                });
-        })
-    }
-
-    const signInWithFacebook = async () => {
-        return await supabase.auth.signIn({
-            provider: 'facebook',
+    const setProspect = (props) => new Promise((resolve, reject) => {
+        postProspect(props).then(({ data, error }) => {
+            resolve([data, error]);
+        }).catch((err) => {
+            reject(err);
         });
-    }
+    })
 
 
 
     useEffect(() => {
+        const { getPaymentMethodList, getMemberList } = supabaseService();
 
-        supabase.from("payment_methods").then(({ data }) => {
+        getPaymentMethodList().then(({ data }) => {
             setPaymentMethods(data);
         })
 
-        supabase.from("users").select("id,name").eq("role", PRIMARY_ROLE).then(({ data }) => {
-            setMember(data);
+        getMemberList().then(({ data }) => {
+            setMemberList(data);
         })
+
+
     }, []);
 
-    const signInWithEmail = () => {
-        supabase.auth.signIn(data);
+    return {
+        paymentMethodsList,
+        memberList,
+        setProspect
     }
 
-    return {
-        supabase,
-        paymentMethods,
-        memberList,
-        setProspect,
-        signInWithFacebook,
-        signInWithEmail
-    }
 }

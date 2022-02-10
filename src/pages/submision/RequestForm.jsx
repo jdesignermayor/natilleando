@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
 
-import { useSupabase } from "../../hooks/useSupabase";
 import { useFormik } from "formik";
+import { useSupabase } from "../../hooks/useSupabase.js";
 
 import memberIcon from "../../assets/images/memberIcon.svg";
 import { ModalSuccess } from "../../components/ModalSuccess.jsx";
@@ -9,8 +16,12 @@ import { ModalSuccess } from "../../components/ModalSuccess.jsx";
 export const RequestForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState({
+    state: false,
+    message: "",
+  });
 
-  const { paymentMethods, memberList, setProspect } = useSupabase();
+  const { paymentMethodsList, memberList, setProspect } = useSupabase();
 
   const formik = useFormik({
     initialValues: {
@@ -21,22 +32,11 @@ export const RequestForm = () => {
       referer_id: "",
       whatsapp_number: "",
     },
-    onSubmit: ({
-      name,
-      surname,
-      document_number,
-      payment_method,
-      referer_id,
-      whatsapp_number,
-    }) => {
+    onSubmit: (props) => {
+      console.log("props:", props);
       setIsLoading(true);
       setProspect({
-        name,
-        surname,
-        document_number,
-        payment_method,
-        referer_id,
-        whatsapp_number,
+        ...props,
       }).then((resp) => {
         let errorMessage = "";
         const [data, error] = resp;
@@ -44,11 +44,19 @@ export const RequestForm = () => {
 
         if (error != null) {
           error.code === "23505"
-            ? (errorMessage = "Ya existe una solicitud con esta cedula.")
+            ? (errorMessage = "Ya existe alguien con esta cédula.")
             : "Por favor intenta de nuevo.";
           setIsSuccess(false);
+          setError({
+            state: true,
+            message: errorMessage,
+          });
         } else {
           setIsSuccess(true);
+          setIsError({
+            state: false,
+            message: "",
+          });
         }
       });
     },
@@ -70,105 +78,98 @@ export const RequestForm = () => {
         <form onSubmit={formik.handleSubmit} className="grid gap-5">
           <div className="grid 2xl:grid-cols-2 gap-2">
             <div className="grid gap-2">
-              <label id="name" className="font-bold">
-                Nombres
-              </label>
-              <input
-                type="text"
+              <TextField
+                id="outlined-basic"
+                label="Nombres"
                 name="name"
+                variant="outlined"
                 onChange={formik.handleChange}
-                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-                placeholder="Ejemplo: Fernanda"
                 required
               />
             </div>
             <div className="grid gap-2">
-              <label id="name" className="font-bold">
-                Apellidos
-              </label>
-              <input
-                type="text"
+              <TextField
+                id="outlined-basic"
+                label="Apellidos"
                 name="surname"
+                variant="outlined"
                 onChange={formik.handleChange}
-                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-                placeholder="Ejemplo: Pulgarin"
                 required
               />
             </div>
           </div>
           <div className="grid 2xl:grid-cols-2 gap-2">
             <div className="grid gap-2  ">
-              <label id="name" className="font-bold">
-                Cédula
-              </label>
-              <input
+              <TextField
                 type="number"
+                id="outlined-basic"
+                label="Cédula"
                 name="document_number"
+                variant="outlined"
                 onChange={formik.handleChange}
-                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-                pattern="\d*"
-                placeholder="Ejemplo: 3042222112"
+                inputProps={{ inputMode: "numeric", pattern: "d*" }}
                 required
               />
             </div>
             <div className="grid gap-2  ">
-              <label id="name" className="font-bold">
-                Whatsapp
-              </label>
-              <input
+              <TextField
                 type="number"
+                id="outlined-basic"
+                label="Whatsapp"
                 name="whatsapp_number"
+                variant="outlined"
                 onChange={formik.handleChange}
-                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-                pattern="\d*"
-                placeholder="Ejemplo: 3042222112"
+                inputProps={{ inputMode: "numeric", pattern: "d*" }}
                 required
               />
             </div>
           </div>
           <div className="grid 2xl:grid-cols-2 gap-2">
             <div className="grid gap-2">
-              <label id="name" className="font-bold">
-                Medio de pago
-              </label>
-              <select
-                name="payment_method"
-                onChange={formik.handleChange}
-                id=""
-                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-                required
-              >
-                <option value="">Selecciona medio de pago</option>
-                {paymentMethods.map(({ id, name }) => (
-                  <option key={id} value={id}>
-                    {name}
-                  </option>
-                ))}
-              </select>
+              <FormControl>
+                <InputLabel id="payment_method">Medio de pago</InputLabel>
+                <Select
+                  labelId="payment_method"
+                  id="demo-multiple-name"
+                  name="payment_method"
+                  value={formik.values.payment_method}
+                  onChange={formik.handleChange}
+                >
+                  {paymentMethodsList.map(({ id, name }) => (
+                    <MenuItem key={id} value={id}>
+                      {name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </div>
             <div className="grid gap-2">
-              <label id="name" className="font-bold">
-                Recomendado por
-              </label>
-              <select
-                name="referer_id"
-                onChange={formik.handleChange}
-                id=""
-                className="h-10 w-full focus:ring-4 transition outline-0 focus:border-primary border-2 rounded-lg focus:bg-primaryLight p-2"
-                required
-              >
-                <option value="">Selecciona la persona que te recomendó</option>
-                {memberList.map(({ id, name }) => (
-                  <option key={id} value={id}>
-                    {name}
-                  </option>
-                ))}
-              </select>
+              <FormControl>
+                <InputLabel id="referer_id">Recomendado por</InputLabel>
+                <Select
+                  labelId="referer_id"
+                  id="demo-multiple-name"
+                  name="referer_id"
+                  value={formik.values.referer_id}
+                  onChange={formik.handleChange}
+                >
+                  {memberList.map(({ id, name }) => (
+                    <MenuItem key={id} value={id}>
+                      {name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </div>
           </div>
           <div>
+            {error.state && (
+              <>
+                <p className="text-red-500 pb-5">{error.message}</p>
+              </>
+            )}
             <button
-              className={`flex items-center justify-center w-full bg-primary text-white py-3 px-5 rounded-2xl focus:ring-4 ${
+              className={`flex items-center justify-center w-full  xl:w-2/4 bg-primary text-white py-3 px-5 rounded-2xl focus:ring-4 ${
                 isLoading ? "opacity-50 cursor-not-allowed" : ""
               }`}
               type="submit"
