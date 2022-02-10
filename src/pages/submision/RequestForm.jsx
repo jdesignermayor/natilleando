@@ -135,7 +135,7 @@ export const RequestForm = () => {
                   value={formik.values.payment_method}
                   onChange={formik.handleChange}
                 >
-                  {paymentMethodsList.map(({ id, name }) => (
+                  {paymentMethodsList?.map(({ id, name }) => (
                     <MenuItem key={id} value={id}>
                       {name}
                     </MenuItem>
@@ -153,7 +153,7 @@ export const RequestForm = () => {
                   value={formik.values.referer_id}
                   onChange={formik.handleChange}
                 >
-                  {memberList.map(({ id, name }) => (
+                  {memberList?.map(({ id, name }) => (
                     <MenuItem key={id} value={id}>
                       {name}
                     </MenuItem>

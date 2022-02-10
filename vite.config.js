@@ -12,5 +12,8 @@ export default defineConfig({
   plugins: [reactRefresh()],
   server: {
     host: true,
+  },
+  build: {
+    chunkSizeWarningLimit: 2000,
   }
 })
