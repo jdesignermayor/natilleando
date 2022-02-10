@@ -7,10 +7,6 @@ export const prices = {
 export const PRIMARY_ROLE = 3;
 
 export const homeService = {
-  config: {
-    ...prices,
-    primaryRole: PRIMARY_ROLE,
-  },
   title: "Natilleando",
   menuItems: [
     { name: "Normas", style: "primaryLight", point: "rules" },

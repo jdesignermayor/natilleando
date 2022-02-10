@@ -127,10 +127,10 @@ export const RequestForm = () => {
           <div className="grid 2xl:grid-cols-2 gap-2">
             <div className="grid gap-2">
               <FormControl>
-                <InputLabel id="payment_method">Medio de pago</InputLabel>
+                <InputLabel id="payment_method_input">Medio de pago</InputLabel>
                 <Select
-                  labelId="payment_method"
-                  id="demo-multiple-name"
+                  labelId="payment_method_input"
+                  id="payment_method"
                   name="payment_method"
                   value={formik.values.payment_method}
                   onChange={formik.handleChange}
@@ -145,10 +145,10 @@ export const RequestForm = () => {
             </div>
             <div className="grid gap-2">
               <FormControl>
-                <InputLabel id="referer_id">Recomendado por</InputLabel>
+                <InputLabel id="referer_id_input">Recomendado por</InputLabel>
                 <Select
-                  labelId="referer_id"
-                  id="demo-multiple-name"
+                  labelId="referer_id_input"
+                  id="referer_id"
                   name="referer_id"
                   value={formik.values.referer_id}
                   onChange={formik.handleChange}

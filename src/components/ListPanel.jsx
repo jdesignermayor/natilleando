@@ -1,5 +1,5 @@
 import React from "react";
-import Parser from "react-html-parser";
+import { Markup } from "interweave";
 
 export const ListPanel = (props) => {
   const { title, description, subtitle, point, imgURL, items } = props;
@@ -11,15 +11,10 @@ export const ListPanel = (props) => {
         <h1 className="text-6xl font-bold py-4 font-recoleta">{title}</h1>
         {subtitle ?? <p className="text-3xl text-green-600">{subtitle}</p>}
       </div>
-      
-      {description && (
-        <>
-          {Parser(description)}
-        </>
-      )}
+      {description !== "" ? <Markup content={description} /> : null}
 
       <ol className="list-disc px-6 space-y-4">
-        {items.map(({ label }, i) => {
+        {items?.map(({ label }, i) => {
           return <li key={i}>{label}</li>;
         })}
       </ol>
