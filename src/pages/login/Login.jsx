@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { useSupabase } from "../../hooks/useSupabase";
 import { useDispatch } from "react-redux";
+import { useAuth } from "../../hooks/useAuth";
 
 import { login } from "../../features/userSlice";
 
@@ -15,10 +15,10 @@ export const Login = () => {
     messageError: "",
   });
 
-  const { supabase } = useSupabase();
   const { isError, messageError } = errorState;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { signInWithGoogle } = useAuth();
 
   const formik = useFormik({
     initialValues: {
@@ -26,28 +26,22 @@ export const Login = () => {
       password: "",
     },
     onSubmit: async (props) => {
-      const { user, session, error } = await supabase.auth.signIn(props);
+      
+      signInWithGoogle().then(res => {
+        alert(JSON.stringify(res));
+      });
+      // setErrorState({
+      //   isError: false,
+      //   messageError: "",
+      // });
+      // dispatch(
+      //   login({
+      //     ...user,
+      //   })
+      // );
+      // navigate("/dashboard");
 
-      if (error) {
-        setErrorState({
-          isError: true,
-          messageError: error.message,
-        });
-      }
 
-      if (user) {
-        setErrorState({
-          isError: false,
-          messageError: "",
-        });
-        dispatch(
-          login({
-            ...user,
-          })
-        );
-
-        navigate("/dashboard");
-      }
     },
   });
 

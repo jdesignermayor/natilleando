@@ -23,9 +23,9 @@ export const Navbar = () => {
             <Button text="Inicio" color="secondary" />
           </Link>
         )}
-        {/* <Link to="login">
+        <Link to="login">
           <Button text="Iniciar sesión" color="secondary" />
-        </Link> */}
+        </Link>
         <Link to="form">
           <Button text="Ser socio" />
         </Link>

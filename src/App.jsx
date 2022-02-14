@@ -7,6 +7,7 @@ import store from "./store";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/home/Home";
 import { RequestForm } from "./pages/submision/RequestForm";
+import { Login } from "./pages/login/Login";
 import { NotFound } from "./pages/404/NotFound";
 
 const theme = createTheme({
@@ -15,7 +16,7 @@ const theme = createTheme({
       main: "#166534",
     },
   },
-});
+});     
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<RequestForm />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Provider>
