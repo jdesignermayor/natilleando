@@ -67,15 +67,12 @@ export const homeService = {
       point: "debts",
       items: [
         {
-          label: "En caso de no dar el ahorro entre los primeros 5 días del mes, se cobrará una $ 500 pesos por cada día de retraso.",
+          label: "En caso de no dar el ahorro entre los primeros 5 días del mes, se cobrará una suma de $500 pesos por cada día de retraso.",
         },
         {
           label: "Para los créditos se cobrará un 5% de interés por mes sobre el valor de la deuda.",
         },
         { label: "Las  multas como los intereses deben ser pagados al inicio de mes con la cuota del ahorro." },
-        {
-          label: "Los intereses serán en un(%) porcentaje al monto de ahorro del socio."
-        },
         {
           label: "Impulsamos la buena gestión del dinero, así que el socio que no pague así sea un mes, automáticamente será expulsado de la natillera."
         }

@@ -18,7 +18,7 @@ export const Liquidation = () => {
         los intereses que correspondan al monto del ahorro.
       </p>
       <p className="mt-5">
-        Estas normas podrán cambiar de acuerdo a las nuevas Estipulaciones de
+        Estas normas podrán cambiar de acuerdo a las nuevas Estipulaciones de{" "}
         <span className="font-bold">{title}</span>.
       </p>
     </div>
