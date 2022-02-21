@@ -1,30 +1,53 @@
 import React from "react";
+import { SideMenu } from "../../components/SideMenu";
+
+import { Card, Box, CardContent, CardActions, Button } from "@mui/material";
 
 export const Dashboard = () => {
   return (
     <>
-      <div className="grid grid-cols-2 pt-40 bg-gray-600 h-screen">
-        <div className="p-5 grid">
-          <div>1</div>
-          <div>1</div>
-          <div>1</div>
-          <div>1</div>
+      <div className="flex pt-20 h-screen px-3 lg:px-64 2xl:px-96">
+        <div className="flex justify-start p-5 border-r">
+          <SideMenu />
         </div>
-        <div>
-          <div className="p-5 grid items-center gap-4">
-            <div>
-              <p className="text-2xl">
-                👋 ¡Bienvenido(a)! <span className="font-bold">Jose</span>
-              </p>
-            </div>
-            <div>
-              <h1 className="text-5xl font-bold">Resumen</h1>
-              <p>
-                Aqui se ven reflejados los avances y resultados de tu perfil en{" "}
-                <span className="font-bold">Natilleando</span>{" "}
-              </p>
-            </div>
-          </div>
+        <div className="flex flex-col pl-10 w-full">
+          <h1 className="text-5xl font-bold  font-recoleta">Resumen</h1>
+
+          <Card variant="outlined" className="w-full">
+            <CardContent>
+              <div>
+                <p className="text-2xl">Total acumulado</p>
+                <p className="text-4xl">$ 1.000.0000</p>
+              </div>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+
+          <Card variant="outlined" className="w-full">
+            <CardContent>
+              <div>
+                <p className="text-2xl">Total deposito</p>
+                <p className="text-4xl">$ 1.000.0000</p>
+              </div>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+
+          <Card variant="outlined" className="w-full">
+            <CardContent>
+              <div>
+                <p className="text-2xl">Total prestamos</p>
+                <p className="text-4xl">$ 0</p>
+              </div>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
         </div>
       </div>
     </>
