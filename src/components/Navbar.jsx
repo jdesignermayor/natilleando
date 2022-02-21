@@ -11,7 +11,7 @@ export const Navbar = () => {
   location.pathname !== "/" ? (isActiveForm = true) : (isActiveForm = false);
 
   return (
-    <div className="w-full flex items-center justify-between py-3 px-3 lg:px-64 2xl:px-96 bg-white z-50 fixed backdrop-filter backdrop-blur-lg bg-opacity-70">
+    <div className="w-full flex items-center justify-between py-3 px-3 lg:px-64 2xl:px-96 bg-white z-50 fixed backdrop-filter backdrop-blur-lg bg-opacity-70  dark:bg-black">
       <div className="cursor-pointer">
         <Link to="/">
           <img src={logo} className="App-logo" alt="logo" />

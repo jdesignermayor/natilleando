@@ -13,8 +13,8 @@ export const Home = () => {
 
   return (
     <>
-      <div className="p-3 lg:px-96">
-        <div className="pt-20 items-center justify-center text-start 2xl:px-[20%]">
+      <div className="p-3 lg:px-96 2xl:px-[20%] dark:bg-black dark:text-white">
+        <div className="pt-20 items-center justify-center text-start ">
           <div className="flex gap-8 items-center h-screen">
             <div>
               <h1 className="text-7xl font-bold font-recoleta">
