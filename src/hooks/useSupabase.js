@@ -15,20 +15,17 @@ export const useSupabase = () => {
         });
     })
 
-
-
     useEffect(() => {
         const { getPaymentMethodList, getMemberList } = supabaseService();
 
         getPaymentMethodList().then(({ data }) => {
             setPaymentMethods(data);
-        })
+        });
 
         getMemberList().then(({ data }) => {
             setMemberList(data);
-        })
-
-
+        });
+        
     }, []);
 
     return {
